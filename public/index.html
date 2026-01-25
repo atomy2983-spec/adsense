@@ -299,6 +299,93 @@
             60%, 100% {
                 content: '...';
             }
+        /* Contact Form Styles */
+#contact-form-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 40px 20px;
+    margin: 40px auto;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.form-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #4caf50; /* Green highlight */
+}
+
+.form-description {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+#partnership-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+    outline: none;
+}
+
+.form-submit-btn {
+    align-self: center;
+    margin-top: 1rem;
+}
+
+.form-status {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.form-status.success {
+    color: #4caf50;
+}
+
+.form-status.error {
+    color: #c41e3a;
+}
+
+@media (max-width: 768px) {
+    #contact-form-container {
+        padding: 30px 15px;
+        margin: 30px auto;
+    }
+    .form-title {
+        font-size: 1.5rem;
+    }
         }
     </style>
 </head>
@@ -371,6 +458,31 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="contact-form-container">
+        <h2 class="form-title">Partnership Inquiry</h2>
+        <p class="form-description">Have a question or a partnership proposal? Send us a message!</p>
+        <form action="https://formspree.io/f/xrepwawb" method="POST" id="partnership-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="_replyto" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit-btn">Send Message</button>
+            <p id="form-status" class="form-status"></p>
+        </form>
     </div>
 
     <!-- 하단 광고 영역 -->
@@ -597,6 +709,45 @@
                 document.execCommand('copy');
                 document.body.removeChild(textArea);
                 alert('Result copied to clipboard!');
+            });
+        }
+
+        // ==================== Formspree submission handler ====================
+        const form = document.getElementById('partnership-form');
+        const formStatus = document.getElementById('form-status');
+
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                formStatus.textContent = 'Sending...';
+                formStatus.className = 'form-status'; // Reset class
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        formStatus.textContent = 'Thank you for your message! We will get back to you soon.';
+                        formStatus.classList.add('success');
+                        form.reset();
+                    } else {
+                        const data = await response.json();
+                        if (Object.hasOwnProperty.call(data, 'errors')) {
+                            formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            formStatus.textContent = 'Oops! There was a problem submitting your form.';
+                        }
+                        formStatus.classList.add('error');
+                    }
+                } catch (error) {
+                    formStatus.textContent = 'Oops! There was a network problem. Please try again later.';
+                    formStatus.classList.add('error');
+                }
             });
         }
 
