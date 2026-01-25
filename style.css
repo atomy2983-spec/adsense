@@ -1,1 +1,97 @@
-/* Add styles here */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+:root {
+  --background-color: #f0f0f0;
+  --container-bg-color: #ffffff;
+  --main-font: 'Nanum Gothic', sans-serif;
+  --text-color: #333;
+  --button-bg-color: #4CAF50;
+  --button-text-color: white;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: var(--main-font);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.app-container {
+  background-color: var(--container-bg-color);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px var(--shadow-color);
+  max-width: 90%;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.lotto-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.lotto-ball {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.generate-btn {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.generate-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .lotto-ball {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .generate-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}
