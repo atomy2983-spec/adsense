@@ -94,70 +94,19 @@
         .share-copy { background: rgba(255, 255, 255, 0.1); color: white; border: 2px solid rgba(255, 255, 255, 0.3); }
 
         /* 페이지 푸터 */
-        #page-footer {
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        #contact-modal-btn {
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-        }
+        #page-footer { padding: 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1); }
+        #contact-modal-btn { padding: 0.8rem 2rem; font-size: 1rem; }
 
         /* 광고 영역 - 하단 */
         #ad-container-bottom { background: rgba(255, 255, 255, 0.05); min-height: 90px; display: flex; align-items: center; justify-content: center; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 12px; color: rgba(255, 255, 255, 0.3); }
 
         /* 모달 스타일 */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        .modal-overlay.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        .modal-content {
-            background: #1e1e1e;
-            padding: 30px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-        .modal-overlay.visible .modal-content {
-            transform: scale(1);
-        }
-        .modal-close-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 1.8rem;
-            line-height: 1;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .modal-close-btn:hover {
-            color: #ffffff;
-        }
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal-overlay.visible { opacity: 1; visibility: visible; }
+        .modal-content { background: #1e1e1e; padding: 30px; border-radius: 15px; width: 90%; max-width: 500px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transform: scale(0.9); transition: transform 0.3s ease; }
+        .modal-overlay.visible .modal-content { transform: scale(1); }
+        .modal-close-btn { position: absolute; top: 15px; right: 15px; background: none; border: none; color: rgba(255, 255, 255, 0.5); font-size: 1.8rem; line-height: 1; cursor: pointer; transition: color 0.3s ease; }
+        .modal-close-btn:hover { color: #ffffff; }
         
         /* 폼 스타일 (모달 내부) */
         #contact-form-container { text-align: center; }
@@ -171,6 +120,31 @@
         .form-status { margin-top: 1rem; font-size: 1rem; font-weight: 500; min-height: 1.2em; }
         .form-status.success { color: #4caf50; }
         .form-status.error { color: #c41e3a; }
+
+        /* 댓글 섹션 */
+        .comments-section {
+            width: 100%;
+            padding: 20px;
+            background: #0a0a0a; /* Match body background */
+            text-align: center;
+        }
+        #toggle-comments-btn {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        #comments-wrapper {
+            max-width: 600px; /* Match game content width */
+            margin: 0 auto;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.7s ease, opacity 0.5s ease;
+        }
+        #comments-wrapper.visible {
+            max-height: 1000px; /* Arbitrary large value */
+            opacity: 1;
+        }
 
         /* 반응형 디자인 - 모바일 */
         @media (max-width: 768px) {
@@ -191,69 +165,32 @@
         /* 로딩 애니메이션 */
         .loading-dots::after { content: '...'; animation: dots 1.5s steps(3, end) infinite; }
         @keyframes dots { 0%, 20% { content: '.'; } 40% { content: '..'; } 60%, 100% { content: '...'; } }
-
-        /* Comments Section */
-        .comments-section {
-            width: 100%;
-            padding: 40px 20px;
-            background: #1a1a1a;
-        }
-
-        #disqus_thread {
-            max-width: 800px;
-            margin: 0 auto;
-        }
     </style>
 </head>
 <body>
     <!-- 상단 광고 영역 -->
-    <div id="ad-container-top">
-        [Advertisement Space - Top]
-    </div>
+    <div id="ad-container-top">[Advertisement Space - Top]</div>
 
     <!-- 메인 게임 영역 -->
     <div id="game-container" class="ready">
         <div class="game-content">
             <!-- 초기 시작 화면 -->
-            <div id="start-screen">
-                <h1 class="game-title pulse">⚡ Reaction Time Test</h1>
-                <p class="game-instruction">
-                    Test your reflexes and see how fast you can react!<br>
-                    Click anywhere to begin the challenge.
-                </p>
-                <p class="start-hint">👆 Click to Begin</p>
-            </div>
-            <!-- (다른 게임 화면들은 동일) -->
-            <div id="waiting-screen" style="display: none;"> <h2 class="game-title">Wait for GREEN</h2> <p class="game-instruction loading-dots">Get ready</p> </div>
-            <div id="go-screen" style="display: none;"> <h2 class="game-title">CLICK NOW!</h2> <p class="game-instruction">⚡ As fast as you can!</p> </div>
-            <div id="too-soon-screen" style="display: none;"> <h2 class="game-title">❌ Too Soon!</h2> <p class="game-instruction"> You clicked before the screen turned green.<br> Wait for the right moment! </p> <button class="btn btn-primary" onclick="restartGame()">Try Again</button> </div>
-            <div id="result-screen" class="result-container"> <h3 style="font-size: 1.5rem; opacity: 0.8;">Your Reaction Time</h3> <div class="result-time" id="result-time">0 ms</div> <div class="result-grade" id="result-grade">Normal Human</div> <p class="result-message" id="result-message">Good job!</p> <div class="stats-container"> <div class="stat-item">📊 Average: <span id="avg-time">-</span> ms</div> <div class="stat-item">🎯 Attempts: <span id="attempt-count">0</span></div> <div class="stat-item">🏆 Best: <span id="best-time">-</span> ms</div> </div> <div style="margin-top: 2rem;"> <button class="btn btn-primary" onclick="restartGame()">Try Again</button> </div> <div class="share-container"> <button class="share-btn share-twitter" onclick="shareToTwitter()" title="Share on Twitter">𝕏</button> <button class="share-btn share-facebook" onclick="shareToFacebook()" title="Share on Facebook">f</button> <button class="share-btn share-whatsapp" onclick="shareToWhatsApp()" title="Share on WhatsApp">W</button> <button class="share-btn share-copy" onclick="copyResult()" title="Copy Result">📋</button> </div> </div>
+            <div id="start-screen"><h1 class="game-title pulse">⚡ Reaction Time Test</h1><p class="game-instruction">Test your reflexes and see how fast you can react!<br>Click anywhere to begin the challenge.</p><p class="start-hint">👆 Click to Begin</p></div>
+            <div id="waiting-screen" style="display: none;"><h2 class="game-title">Wait for GREEN</h2><p class="game-instruction loading-dots">Get ready</p></div>
+            <div id="go-screen" style="display: none;"><h2 class="game-title">CLICK NOW!</h2><p class="game-instruction">⚡ As fast as you can!</p></div>
+            <div id="too-soon-screen" style="display: none;"><h2 class="game-title">❌ Too Soon!</h2><p class="game-instruction">You clicked before the screen turned green.<br>Wait for the right moment!</p><button class="btn btn-primary" onclick="restartGame()">Try Again</button></div>
+            <div id="result-screen" class="result-container"><h3 style="font-size: 1.5rem; opacity: 0.8;">Your Reaction Time</h3><div class="result-time" id="result-time">0 ms</div><div class="result-grade" id="result-grade">Normal Human</div><p class="result-message" id="result-message">Good job!</p><div class="stats-container"><div class="stat-item">📊 Average: <span id="avg-time">-</span> ms</div><div class="stat-item">🎯 Attempts: <span id="attempt-count">0</span></div><div class="stat-item">🏆 Best: <span id="best-time">-</span> ms</div></div><div style="margin-top: 2rem;"><button class="btn btn-primary" onclick="restartGame()">Try Again</button></div><div class="share-container"><button class="share-btn share-twitter" onclick="shareToTwitter()" title="Share on Twitter">𝕏</button><button class="share-btn share-facebook" onclick="shareToFacebook()" title="Share on Facebook">f</button><button class="share-btn share-whatsapp" onclick="shareToWhatsApp()" title="Share on WhatsApp">W</button><button class="share-btn share-copy" onclick="copyResult()" title="Copy Result">📋</button></div></div>
         </div>
     </div>
-    
+
     <!-- Disqus Comments Section -->
     <section class="comments-section">
-        <div id="disqus_thread"></div>
+        <button id="toggle-comments-btn" class="btn btn-secondary">Show Comments</button>
+        <div id="comments-wrapper">
+            <div id="disqus_thread"></div>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        </div>
     </section>
-    <script>
-        /**
-        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-        
-        var disqus_config = function () {
-            this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
-            this.page.identifier = 'reaction-time-test-v1'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-        };
-        
-        (function() { // DON'T EDIT BELOW THIS LINE
-        var d = document, s = d.createElement('script');
-        s.src = 'https://adsens11.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <!-- End Disqus Comments Section -->
 
     <!-- 페이지 푸터 -->
     <footer id="page-footer">
@@ -261,9 +198,7 @@
     </footer>
 
     <!-- 하단 광고 영역 -->
-    <div id="ad-container-bottom">
-        [Advertisement Space - Bottom]
-    </div>
+    <div id="ad-container-bottom">[Advertisement Space - Bottom]</div>
 
     <!-- 문의 모달 -->
     <div id="contact-modal" class="modal-overlay">
@@ -273,22 +208,10 @@
                 <h2 class="form-title">Partnership Inquiry</h2>
                 <p class="form-description">Have a question or a partnership proposal? Send us a message!</p>
                 <form action="https://formspree.io/f/xrepwawb" method="POST" id="partnership-form">
-                    <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="_replyto" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject:</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
-                    </div>
+                    <div class="form-group"><label for="name">Name:</label><input type="text" id="name" name="name" required></div>
+                    <div class="form-group"><label for="email">Email:</label><input type="email" id="email" name="_replyto" required></div>
+                    <div class="form-group"><label for="subject">Subject:</label><input type="text" id="subject" name="subject" required></div>
+                    <div class="form-group"><label for="message">Message:</label><textarea id="message" name="message" rows="4" required></textarea></div>
                     <button type="submit" class="btn btn-primary form-submit-btn">Send Message</button>
                     <p id="form-status" class="form-status"></p>
                 </form>
@@ -296,38 +219,19 @@
         </div>
     </div>
 
-
     <script>
         // ==================== 게임 상태 관리 ====================
-        let gameState = 'ready'; // ready, waiting, go, too-soon, result
-        let waitTimeout = null; // 대기 타이머
-        let startTime = 0; // 초록색 화면 시작 시간
-        
-        // 기록 저장용 변수
+        let gameState = 'ready', waitTimeout = null, startTime = 0;
         let reactionTimes = JSON.parse(localStorage.getItem('reactionTimes')) || [];
         let attemptCount = parseInt(localStorage.getItem('attemptCount')) || 0;
         let bestTime = parseInt(localStorage.getItem('bestTime')) || null;
 
         // ==================== DOM 요소 참조 ====================
-        const gameContainer = document.getElementById('game-container');
-        const startScreen = document.getElementById('start-screen');
-        const waitingScreen = document.getElementById('waiting-screen');
-        const goScreen = document.getElementById('go-screen');
-        const tooSoonScreen = document.getElementById('too-soon-screen');
-        const resultScreen = document.getElementById('result-screen');
+        const gameContainer = document.getElementById('game-container'), startScreen = document.getElementById('start-screen'), waitingScreen = document.getElementById('waiting-screen'), goScreen = document.getElementById('go-screen'), tooSoonScreen = document.getElementById('too-soon-screen'), resultScreen = document.getElementById('result-screen');
 
         // ==================== 메인 클릭 이벤트 핸들러 ====================
         gameContainer.addEventListener('click', handleClick);
-
-        function handleClick(e) {
-            // 버튼 클릭은 이벤트 전파 방지
-            if (e.target.tagName === 'BUTTON') {
-                return;
-            }
-            if (gameState === 'ready') startWaiting();
-            else if (gameState === 'waiting') showTooSoon();
-            else if (gameState === 'go') recordReaction();
-        }
+        function handleClick(e) { if (e.target.tagName === 'BUTTON') return; if (gameState === 'ready') startWaiting(); else if (gameState === 'waiting') showTooSoon(); else if (gameState === 'go') recordReaction(); }
 
         // ==================== 게임 로직 함수들 ====================
         function startWaiting() { gameState = 'waiting'; hideAllScreens(); waitingScreen.style.display = 'block'; gameContainer.className = 'waiting'; const randomDelay = Math.random() * 3000 + 2000; waitTimeout = setTimeout(showGo, randomDelay); }
@@ -335,81 +239,64 @@
         function showTooSoon() { gameState = 'too-soon'; clearTimeout(waitTimeout); hideAllScreens(); tooSoonScreen.style.display = 'block'; gameContainer.className = 'too-soon'; }
         function recordReaction() { const reactionTime = Date.now() - startTime; gameState = 'result'; reactionTimes.push(reactionTime); attemptCount++; if (bestTime === null || reactionTime < bestTime) { bestTime = reactionTime; localStorage.setItem('bestTime', bestTime); } if (reactionTimes.length > 10) reactionTimes.shift(); localStorage.setItem('reactionTimes', JSON.stringify(reactionTimes)); localStorage.setItem('attemptCount', attemptCount); showResult(reactionTime); }
         function showResult(time) { hideAllScreens(); resultScreen.style.display = 'block'; gameContainer.className = 'ready'; document.getElementById('result-time').textContent = time + ' ms'; const gradeInfo = getGrade(time); document.getElementById('result-grade').textContent = gradeInfo.grade; document.getElementById('result-message').textContent = gradeInfo.message; updateStats(); }
-        
-        // ==================== 등급 계산 함수 ====================
-        function getGrade(time) {
-            if (time < 150) return { grade: '🏎️ F1 Driver', message: 'Incredible! You have superhuman reflexes!' };
-            if (time < 200) return { grade: '✈️ Fighter Pilot', message: 'Outstanding! Your reflexes are exceptional!' };
-            if (time < 250) return { grade: '⚡ Athlete', message: 'Impressive! You react faster than most people!' };
-            if (time < 300) return { grade: '👤 Normal Human', message: 'Good job! You have average reflexes.' };
-            if (time < 400) return { grade: '🐢 A Bit Slow', message: 'Not bad, but you can do better!' };
-            return { grade: '🦥 Sloth Mode', message: 'Maybe you need more coffee? Try again!' };
-        }
-
-        // ==================== 통계 업데이트 ====================
-        function updateStats() { const avg = reactionTimes.reduce((a, b) => a + b, 0) / reactionTimes.length; document.getElementById('avg-time').textContent = Math.round(avg); document.getElementById('attempt-count').textContent = attemptCount; document.getElementById('best-time').textContent = bestTime !== null ? bestTime : '-'; }
-        
-        // ==================== 게임 재시작 ====================
+        function getGrade(time) { if (time < 150) return { grade: '🏎️ F1 Driver', message: 'Incredible! You have superhuman reflexes!' }; if (time < 200) return { grade: '✈️ Fighter Pilot', message: 'Outstanding! Your reflexes are exceptional!' }; if (time < 250) return { grade: '⚡ Athlete', message: 'Impressive! You react faster than most people!' }; if (time < 300) return { grade: '👤 Normal Human', message: 'Good job! You have average reflexes.' }; if (time < 400) return { grade: '🐢 A Bit Slow', message: 'Not bad, but you can do better!' }; return { grade: '🦥 Sloth Mode', message: 'Maybe you need more coffee? Try again!' }; }
+        function updateStats() { const avg = reactionTimes.reduce((a, b) => a + b, 0) / reactionTimes.length; document.getElementById('avg-time').textContent = isNaN(avg) ? '-' : Math.round(avg); document.getElementById('attempt-count').textContent = attemptCount; document.getElementById('best-time').textContent = bestTime !== null ? bestTime : '-'; }
         function restartGame() { gameState = 'ready'; clearTimeout(waitTimeout); hideAllScreens(); startScreen.style.display = 'block'; gameContainer.className = 'ready'; }
-        
-        // ==================== 화면 전환 헬퍼 함수 ====================
         function hideAllScreens() { startScreen.style.display = 'none'; waitingScreen.style.display = 'none'; goScreen.style.display = 'none'; tooSoonScreen.style.display = 'none'; resultScreen.style.display = 'none'; }
         
         // ==================== SNS 공유 기능 ====================
-        function shareToTwitter() { const time = document.getElementById('result-time').textContent; const grade = document.getElementById('result-grade').textContent; const text = `I just scored ${time} (${grade}) on the Reaction Time Test! Can you beat my score?`; const url = encodeURIComponent(window.location.href); window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`, '_blank'); }
-        function shareToFacebook() { const url = encodeURIComponent(window.location.href); window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank'); }
-        function shareToWhatsApp() { const time = document.getElementById('result-time').textContent; const grade = document.getElementById('result-grade').textContent; const text = `I just scored ${time} (${grade}) on the Reaction Time Test! Can you beat my score? ${window.location.href}`; window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank'); }
-        function copyResult() { const time = document.getElementById('result-time').textContent; const grade = document.getElementById('result-grade').textContent; const text = `I just scored ${time} (${grade}) on the Reaction Time Test! Can you beat my score? ${window.location.href}`; navigator.clipboard.writeText(text).then(() => { alert('Result copied to clipboard!'); }).catch(() => { const textArea = document.createElement('textarea'); textArea.value = text; document.body.appendChild(textArea); textArea.select(); document.execCommand('copy'); document.body.removeChild(textArea); alert('Result copied to clipboard!'); }); }
+        function shareToTwitter() { const t = document.getElementById('result-time').textContent, g = document.getElementById('result-grade').textContent, txt = `I just scored ${t} (${g}) on the Reaction Time Test! Can you beat my score?`, u = encodeURIComponent(window.location.href); window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(txt)}&url=${u}`, '_blank'); }
+        function shareToFacebook() { const u = encodeURIComponent(window.location.href); window.open(`https://www.facebook.com/sharer/sharer.php?u=${u}`, '_blank'); }
+        function shareToWhatsApp() { const t = document.getElementById('result-time').textContent, g = document.getElementById('result-grade').textContent, txt = `I just scored ${t} (${g}) on this Reaction Test! Can you beat my score? ${window.location.href}`; window.open(`https-//wa.me/?text=${encodeURIComponent(txt)}`, '_blank'); }
+        function copyResult() { const t = document.getElementById('result-time').textContent, g = document.getElementById('result-grade').textContent, txt = `I just scored ${t} (${g}) on the Reaction Time Test! Can you beat my score? ${window.location.href}`; navigator.clipboard.writeText(txt).then(() => alert('Result copied!'), () => { const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); alert('Result copied!'); }); }
         
         // ==================== Formspree submission handler ====================
-        const form = document.getElementById('partnership-form');
-        const formStatus = document.getElementById('form-status');
-        if (form) {
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                formStatus.textContent = 'Sending...';
-                formStatus.className = 'form-status'; // Reset class
-                try {
-                    const response = await fetch(form.action, { method: form.method, body: new FormData(form), headers: { 'Accept': 'application/json' } });
-                    if (response.ok) {
-                        formStatus.textContent = 'Thank you for your message! We will get back to you soon.';
-                        formStatus.classList.add('success');
-                        form.reset();
-                    } else {
-                        const data = await response.json();
-                        if (Object.hasOwnProperty.call(data, 'errors')) { formStatus.textContent = data["errors"].map(error => error["message"]).join(", "); } else { formStatus.textContent = 'Oops! There was a problem submitting your form.'; }
-                        formStatus.classList.add('error');
-                    }
-                } catch (error) {
-                    formStatus.textContent = 'Oops! There was a network problem. Please try again later.';
-                    formStatus.classList.add('error');
-                }
-            });
-        }
+        const form = document.getElementById('partnership-form'), formStatus = document.getElementById('form-status');
+        if (form) { form.addEventListener('submit', async e => { e.preventDefault(); formStatus.textContent = 'Sending...'; formStatus.className = 'form-status'; try { const r = await fetch(form.action, { method: form.method, body: new FormData(form), headers: { 'Accept': 'application/json' } }); if (r.ok) { formStatus.textContent = 'Thank you for your message!'; formStatus.classList.add('success'); form.reset(); } else { const d = await r.json(); if (Object.hasOwnProperty.call(d, 'errors')) { formStatus.textContent = d["errors"].map(err => err["message"]).join(", "); } else { formStatus.textContent = 'Oops! There was a problem.'; } formStatus.classList.add('error'); } } catch (err) { formStatus.textContent = 'Oops! A network error occurred.'; formStatus.classList.add('error'); } }); }
         
         // ==================== Modal Control ====================
-        const contactModal = document.getElementById('contact-modal');
-        const openModalBtn = document.getElementById('contact-modal-btn');
-        const closeModalBtn = document.getElementById('modal-close-btn');
-
+        const contactModal = document.getElementById('contact-modal'), openModalBtn = document.getElementById('contact-modal-btn'), closeModalBtn = document.getElementById('modal-close-btn');
         function openModal() { contactModal.classList.add('visible'); }
         function closeModal() { contactModal.classList.remove('visible'); }
-
         openModalBtn.addEventListener('click', openModal);
         closeModalBtn.addEventListener('click', closeModal);
-        contactModal.addEventListener('click', (e) => {
-            if (e.target === contactModal) { // Click on overlay
-                closeModal();
+        contactModal.addEventListener('click', e => { if (e.target === contactModal) closeModal(); });
+
+        // ==================== Disqus Lazy Load ====================
+        const toggleBtn = document.getElementById('toggle-comments-btn');
+        const commentsWrapper = document.getElementById('comments-wrapper');
+        let disqusLoaded = false;
+
+        toggleBtn.addEventListener('click', () => {
+            const isHidden = !commentsWrapper.classList.contains('visible');
+            if (isHidden) {
+                commentsWrapper.classList.add('visible');
+                toggleBtn.textContent = 'Hide Comments';
+                if (!disqusLoaded) {
+                    loadDisqus();
+                    disqusLoaded = true;
+                }
+            } else {
+                commentsWrapper.classList.remove('visible');
+                toggleBtn.textContent = 'Show Comments';
             }
         });
 
+        function loadDisqus() {
+            var disqus_config = function () {
+                this.page.url = window.location.href;
+                this.page.identifier = 'reaction-time-test-v1';
+            };
+            (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://adsens11.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        }
+
         // ==================== 초기화 ====================
-        // 페이지 로드 시 통계 표시
-        window.addEventListener('load', () => {
-            if (reactionTimes.length > 0) {
-                updateStats();
-            }
-        });
+        window.addEventListener('load', () => { if (reactionTimes.length > 0) updateStats(); });
     </script>
 </body>
 </html>
