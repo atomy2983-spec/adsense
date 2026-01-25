@@ -1,8 +1,8 @@
-name = "adsens"
+name = "adsense"
 compatibility_date = "2026-01-25"
 
 [[routes]]
-pattern = "cottenspring.uk/*"
+pattern = "cottenspring.uk"
 custom_domain = true
 
 [assets]
