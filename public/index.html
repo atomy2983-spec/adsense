@@ -56,337 +56,141 @@
         }
 
         /* 게임 상태별 배경색 */
-        #game-container.ready {
-            background: #1a1a1a;
-        }
-
-        #game-container.waiting {
-            background: #c41e3a;
-        }
-
-        #game-container.go {
-            background: #4caf50;
-        }
-
-        #game-container.too-soon {
-            background: #2196f3;
-        }
+        #game-container.ready { background: #1a1a1a; }
+        #game-container.waiting { background: #c41e3a; }
+        #game-container.go { background: #4caf50; }
+        #game-container.too-soon { background: #2196f3; }
 
         /* 게임 콘텐츠 영역 */
-        .game-content {
-            text-align: center;
-            max-width: 600px;
-            width: 100%;
-        }
-
-        .game-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .game-instruction {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        .start-hint {
-            font-size: 1rem;
-            opacity: 0.6;
-            margin-top: 1rem;
-        }
+        .game-content { text-align: center; max-width: 600px; width: 100%; }
+        .game-title { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); }
+        .game-instruction { font-size: 1.2rem; line-height: 1.6; opacity: 0.9; margin-bottom: 2rem; }
+        .start-hint { font-size: 1rem; opacity: 0.6; margin-top: 1rem; }
 
         /* 결과 화면 스타일 */
-        .result-container {
-            display: none;
-            text-align: center;
-        }
-
-        .result-time {
-            font-size: 5rem;
-            font-weight: 800;
-            margin: 1rem 0;
-            color: #4caf50;
-            text-shadow: 0 0 20px rgba(76, 175, 80, 0.5);
-        }
-
-        .result-grade {
-            font-size: 2rem;
-            font-weight: 600;
-            margin: 1rem 0;
-            padding: 0.5rem 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            display: inline-block;
-        }
-
-        .result-message {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            margin: 1rem 0;
-        }
+        .result-container { display: none; text-align: center; }
+        .result-time { font-size: 5rem; font-weight: 800; margin: 1rem 0; color: #4caf50; text-shadow: 0 0 20px rgba(76, 175, 80, 0.5); }
+        .result-grade { font-size: 2rem; font-weight: 600; margin: 1rem 0; padding: 0.5rem 2rem; background: rgba(255, 255, 255, 0.1); border-radius: 50px; display: inline-block; }
+        .result-message { font-size: 1.2rem; opacity: 0.8; margin: 1rem 0; }
 
         /* 평균 기록 표시 */
-        .stats-container {
-            margin: 2rem 0;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-        }
-
-        .stat-item {
-            font-size: 1rem;
-            margin: 0.5rem 0;
-            opacity: 0.7;
-        }
+        .stats-container { margin: 2rem 0; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+        .stat-item { font-size: 1rem; margin: 0.5rem 0; opacity: 0.7; }
 
         /* 버튼 스타일 */
-        .btn {
-            padding: 1rem 3rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 0.5rem;
-            font-family: inherit;
-        }
-
-        .btn-primary {
-            background: #4caf50;
-            color: white;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
-        }
-
-        .btn-primary:hover {
-            background: #45a049;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
+        .btn { padding: 1rem 3rem; font-size: 1.2rem; font-weight: 600; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; margin: 0.5rem; font-family: inherit; }
+        .btn-primary { background: #4caf50; color: white; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4); }
+        .btn-primary:hover { background: #45a049; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6); }
+        .btn-secondary { background: rgba(255, 255, 255, 0.1); color: white; border: 2px solid rgba(255, 255, 255, 0.3); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
 
         /* SNS 공유 버튼 영역 */
-        .share-container {
-            margin-top: 2rem;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+        .share-container { margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .share-btn { width: 50px; height: 50px; border-radius: 50%; border: none; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; }
+        .share-btn:hover { transform: translateY(-3px) scale(1.1); }
+        .share-twitter { background: #1da1f2; color: white; }
+        .share-facebook { background: #4267b2; color: white; }
+        .share-whatsapp { background: #25d366; color: white; }
+        .share-copy { background: rgba(255, 255, 255, 0.1); color: white; border: 2px solid rgba(255, 255, 255, 0.3); }
 
-        .share-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* 페이지 푸터 */
+        #page-footer {
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        .share-btn:hover {
-            transform: translateY(-3px) scale(1.1);
-        }
-
-        .share-twitter {
-            background: #1da1f2;
-            color: white;
-        }
-
-        .share-facebook {
-            background: #4267b2;
-            color: white;
-        }
-
-        .share-whatsapp {
-            background: #25d366;
-            color: white;
-        }
-
-        .share-copy {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+        
+        #contact-modal-btn {
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
         }
 
         /* 광고 영역 - 하단 */
-        #ad-container-bottom {
-            background: rgba(255, 255, 255, 0.05);
-            min-height: 90px;
+        #ad-container-bottom { background: rgba(255, 255, 255, 0.05); min-height: 90px; display: flex; align-items: center; justify-content: center; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 12px; color: rgba(255, 255, 255, 0.3); }
+
+        /* 모달 스타일 */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
             display: flex;
             align-items: center;
             justify-content: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
+        .modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.visible .modal-content {
+            transform: scale(1);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 1.8rem;
+            line-height: 1;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .modal-close-btn:hover {
+            color: #ffffff;
+        }
+        
+        /* 폼 스타일 (모달 내부) */
+        #contact-form-container { text-align: center; }
+        .form-title { font-size: 2rem; font-weight: 700; margin-bottom: 1rem; color: #4caf50; }
+        .form-description { font-size: 1rem; opacity: 0.8; margin-bottom: 2rem; }
+        #partnership-form { display: flex; flex-direction: column; gap: 1rem; text-align: left; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: rgba(255, 255, 255, 0.7); }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid rgba(255, 255, 255, 0.2); background: #252525; color: #ffffff; border-radius: 8px; font-size: 1rem; transition: all 0.3s ease; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #4caf50; box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3); outline: none; }
+        .form-submit-btn { align-self: center; margin-top: 1rem; }
+        .form-status { margin-top: 1rem; font-size: 1rem; font-weight: 500; min-height: 1.2em; }
+        .form-status.success { color: #4caf50; }
+        .form-status.error { color: #c41e3a; }
 
         /* 반응형 디자인 - 모바일 */
         @media (max-width: 768px) {
-            .game-title {
-                font-size: 2rem;
-            }
-
-            .game-instruction {
-                font-size: 1rem;
-            }
-
-            .result-time {
-                font-size: 3.5rem;
-            }
-
-            .result-grade {
-                font-size: 1.5rem;
-                padding: 0.5rem 1.5rem;
-            }
-
-            .btn {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-
-            #ad-container-top,
-            #ad-container-bottom {
-                min-height: 50px;
-                font-size: 10px;
-            }
+            .game-title { font-size: 2rem; }
+            .game-instruction { font-size: 1rem; }
+            .result-time { font-size: 3.5rem; }
+            .result-grade { font-size: 1.5rem; padding: 0.5rem 1.5rem; }
+            .btn { padding: 0.8rem 2rem; font-size: 1rem; }
+            #ad-container-top, #ad-container-bottom { min-height: 50px; font-size: 10px; }
+            .modal-content { padding: 20px; }
+            .form-title { font-size: 1.5rem; }
         }
 
         /* 애니메이션 효과 */
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-        }
-
-        .pulse {
-            animation: pulse 2s ease-in-out infinite;
-        }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .pulse { animation: pulse 2s ease-in-out infinite; }
 
         /* 로딩 애니메이션 */
-        .loading-dots::after {
-            content: '...';
-            animation: dots 1.5s steps(3, end) infinite;
-        }
-
-        @keyframes dots {
-            0%, 20% {
-                content: '.';
-            }
-            40% {
-                content: '..';
-            }
-            60%, 100% {
-                content: '...';
-            }
-        /* Contact Form Styles */
-#contact-form-container {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 40px 20px;
-    margin: 40px auto;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.form-title {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #4caf50; /* Green highlight */
-}
-
-.form-description {
-    font-size: 1rem;
-    opacity: 0.8;
-    margin-bottom: 2rem;
-}
-
-#partnership-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-    width: 100%;
-    padding: 10px 15px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background: rgba(0, 0, 0, 0.3);
-    color: #ffffff;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.form-group input[type="text"]:focus,
-.form-group input[type="email"]:focus,
-.form-group textarea:focus {
-    border-color: #4caf50;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
-    outline: none;
-}
-
-.form-submit-btn {
-    align-self: center;
-    margin-top: 1rem;
-}
-
-.form-status {
-    margin-top: 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #ffffff;
-}
-
-.form-status.success {
-    color: #4caf50;
-}
-
-.form-status.error {
-    color: #c41e3a;
-}
-
-@media (max-width: 768px) {
-    #contact-form-container {
-        padding: 30px 15px;
-        margin: 30px auto;
-    }
-    .form-title {
-        font-size: 1.5rem;
-    }
-        }
+        .loading-dots::after { content: '...'; animation: dots 1.5s steps(3, end) infinite; }
+        @keyframes dots { 0%, 20% { content: '.'; } 40% { content: '..'; } 60%, 100% { content: '...'; } }
     </style>
 </head>
 <body>
@@ -407,88 +211,55 @@
                 </p>
                 <p class="start-hint">👆 Click to Begin</p>
             </div>
-
-            <!-- 대기 화면 (빨간색) -->
-            <div id="waiting-screen" style="display: none;">
-                <h2 class="game-title">Wait for GREEN</h2>
-                <p class="game-instruction loading-dots">Get ready</p>
-            </div>
-
-            <!-- 클릭 신호 화면 (초록색) -->
-            <div id="go-screen" style="display: none;">
-                <h2 class="game-title">CLICK NOW!</h2>
-                <p class="game-instruction">⚡ As fast as you can!</p>
-            </div>
-
-            <!-- 너무 빨리 클릭한 경우 (파란색) -->
-            <div id="too-soon-screen" style="display: none;">
-                <h2 class="game-title">❌ Too Soon!</h2>
-                <p class="game-instruction">
-                    You clicked before the screen turned green.<br>
-                    Wait for the right moment!
-                </p>
-                <button class="btn btn-primary" onclick="restartGame()">Try Again</button>
-            </div>
-
-            <!-- 결과 화면 -->
-            <div id="result-screen" class="result-container">
-                <h3 style="font-size: 1.5rem; opacity: 0.8;">Your Reaction Time</h3>
-                <div class="result-time" id="result-time">0 ms</div>
-                <div class="result-grade" id="result-grade">Normal Human</div>
-                <p class="result-message" id="result-message">Good job!</p>
-                
-                <!-- 통계 정보 -->
-                <div class="stats-container">
-                    <div class="stat-item">📊 Average: <span id="avg-time">-</span> ms</div>
-                    <div class="stat-item">🎯 Attempts: <span id="attempt-count">0</span></div>
-                    <div class="stat-item">🏆 Best: <span id="best-time">-</span> ms</div>
-                </div>
-
-                <!-- 액션 버튼 -->
-                <div style="margin-top: 2rem;">
-                    <button class="btn btn-primary" onclick="restartGame()">Try Again</button>
-                </div>
-
-                <!-- SNS 공유 버튼 -->
-                <div class="share-container">
-                    <button class="share-btn share-twitter" onclick="shareToTwitter()" title="Share on Twitter">𝕏</button>
-                    <button class="share-btn share-facebook" onclick="shareToFacebook()" title="Share on Facebook">f</button>
-                    <button class="share-btn share-whatsapp" onclick="shareToWhatsApp()" title="Share on WhatsApp">W</button>
-                    <button class="share-btn share-copy" onclick="copyResult()" title="Copy Result">📋</button>
-                </div>
-            </div>
+            <!-- (다른 게임 화면들은 동일) -->
+            <div id="waiting-screen" style="display: none;"> <h2 class="game-title">Wait for GREEN</h2> <p class="game-instruction loading-dots">Get ready</p> </div>
+            <div id="go-screen" style="display: none;"> <h2 class="game-title">CLICK NOW!</h2> <p class="game-instruction">⚡ As fast as you can!</p> </div>
+            <div id="too-soon-screen" style="display: none;"> <h2 class="game-title">❌ Too Soon!</h2> <p class="game-instruction"> You clicked before the screen turned green.<br> Wait for the right moment! </p> <button class="btn btn-primary" onclick="restartGame()">Try Again</button> </div>
+            <div id="result-screen" class="result-container"> <h3 style="font-size: 1.5rem; opacity: 0.8;">Your Reaction Time</h3> <div class="result-time" id="result-time">0 ms</div> <div class="result-grade" id="result-grade">Normal Human</div> <p class="result-message" id="result-message">Good job!</p> <div class="stats-container"> <div class="stat-item">📊 Average: <span id="avg-time">-</span> ms</div> <div class="stat-item">🎯 Attempts: <span id="attempt-count">0</span></div> <div class="stat-item">🏆 Best: <span id="best-time">-</span> ms</div> </div> <div style="margin-top: 2rem;"> <button class="btn btn-primary" onclick="restartGame()">Try Again</button> </div> <div class="share-container"> <button class="share-btn share-twitter" onclick="shareToTwitter()" title="Share on Twitter">𝕏</button> <button class="share-btn share-facebook" onclick="shareToFacebook()" title="Share on Facebook">f</button> <button class="share-btn share-whatsapp" onclick="shareToWhatsApp()" title="Share on WhatsApp">W</button> <button class="share-btn share-copy" onclick="copyResult()" title="Copy Result">📋</button> </div> </div>
         </div>
     </div>
-
-    <div id="contact-form-container">
-        <h2 class="form-title">Partnership Inquiry</h2>
-        <p class="form-description">Have a question or a partnership proposal? Send us a message!</p>
-        <form action="https://formspree.io/f/xrepwawb" method="POST" id="partnership-form">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="_replyto" required>
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary form-submit-btn">Send Message</button>
-            <p id="form-status" class="form-status"></p>
-        </form>
-    </div>
+    
+    <!-- 페이지 푸터 -->
+    <footer id="page-footer">
+        <button id="contact-modal-btn" class="btn btn-secondary">Partnership Inquiry</button>
+    </footer>
 
     <!-- 하단 광고 영역 -->
     <div id="ad-container-bottom">
         [Advertisement Space - Bottom]
     </div>
+
+    <!-- 문의 모달 -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close-btn" class="modal-close-btn">&times;</button>
+            <div id="contact-form-container">
+                <h2 class="form-title">Partnership Inquiry</h2>
+                <p class="form-description">Have a question or a partnership proposal? Send us a message!</p>
+                <form action="https://formspree.io/f/xrepwawb" method="POST" id="partnership-form">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="_replyto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit-btn">Send Message</button>
+                    <p id="form-status" class="form-status"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         // ==================== 게임 상태 관리 ====================
@@ -517,231 +288,60 @@
             if (e.target.tagName === 'BUTTON') {
                 return;
             }
-
-            if (gameState === 'ready') {
-                startWaiting();
-            } else if (gameState === 'waiting') {
-                showTooSoon();
-            } else if (gameState === 'go') {
-                recordReaction();
-            }
+            if (gameState === 'ready') startWaiting();
+            else if (gameState === 'waiting') showTooSoon();
+            else if (gameState === 'go') recordReaction();
         }
 
         // ==================== 게임 로직 함수들 ====================
+        function startWaiting() { gameState = 'waiting'; hideAllScreens(); waitingScreen.style.display = 'block'; gameContainer.className = 'waiting'; const randomDelay = Math.random() * 3000 + 2000; waitTimeout = setTimeout(showGo, randomDelay); }
+        function showGo() { gameState = 'go'; startTime = Date.now(); hideAllScreens(); goScreen.style.display = 'block'; gameContainer.className = 'go'; }
+        function showTooSoon() { gameState = 'too-soon'; clearTimeout(waitTimeout); hideAllScreens(); tooSoonScreen.style.display = 'block'; gameContainer.className = 'too-soon'; }
+        function recordReaction() { const reactionTime = Date.now() - startTime; gameState = 'result'; reactionTimes.push(reactionTime); attemptCount++; if (bestTime === null || reactionTime < bestTime) { bestTime = reactionTime; localStorage.setItem('bestTime', bestTime); } if (reactionTimes.length > 10) reactionTimes.shift(); localStorage.setItem('reactionTimes', JSON.stringify(reactionTimes)); localStorage.setItem('attemptCount', attemptCount); showResult(reactionTime); }
+        function showResult(time) { hideAllScreens(); resultScreen.style.display = 'block'; gameContainer.className = 'ready'; document.getElementById('result-time').textContent = time + ' ms'; const gradeInfo = getGrade(time); document.getElementById('result-grade').textContent = gradeInfo.grade; document.getElementById('result-message').textContent = gradeInfo.message; updateStats(); }
         
-        // 1. 대기 상태 시작 (빨간 화면)
-        function startWaiting() {
-            gameState = 'waiting';
-            hideAllScreens();
-            waitingScreen.style.display = 'block';
-            gameContainer.className = 'waiting';
-
-            // 2~5초 사이 랜덤 대기 후 초록색으로 변경
-            const randomDelay = Math.random() * 3000 + 2000; // 2000ms ~ 5000ms
-            
-            waitTimeout = setTimeout(() => {
-                showGo();
-            }, randomDelay);
-        }
-
-        // 2. 클릭 신호 화면 (초록색)
-        function showGo() {
-            gameState = 'go';
-            startTime = Date.now();
-            hideAllScreens();
-            goScreen.style.display = 'block';
-            gameContainer.className = 'go';
-        }
-
-        // 3. 너무 빨리 클릭한 경우 (파란색)
-        function showTooSoon() {
-            gameState = 'too-soon';
-            clearTimeout(waitTimeout);
-            hideAllScreens();
-            tooSoonScreen.style.display = 'block';
-            gameContainer.className = 'too-soon';
-        }
-
-        // 4. 반응 시간 기록 및 결과 표시
-        function recordReaction() {
-            const reactionTime = Date.now() - startTime;
-            gameState = 'result';
-            
-            // 기록 저장
-            reactionTimes.push(reactionTime);
-            attemptCount++;
-            
-            // 최고 기록 갱신
-            if (bestTime === null || reactionTime < bestTime) {
-                bestTime = reactionTime;
-                localStorage.setItem('bestTime', bestTime);
-            }
-            
-            // 로컬스토리지에 저장 (최근 10개만 유지)
-            if (reactionTimes.length > 10) {
-                reactionTimes.shift();
-            }
-            localStorage.setItem('reactionTimes', JSON.stringify(reactionTimes));
-            localStorage.setItem('attemptCount', attemptCount);
-            
-            // 결과 화면 표시
-            showResult(reactionTime);
-        }
-
-        // 5. 결과 화면 표시
-        function showResult(time) {
-            hideAllScreens();
-            resultScreen.style.display = 'block';
-            gameContainer.className = 'ready';
-            
-            // 반응 시간 표시
-            document.getElementById('result-time').textContent = time + ' ms';
-            
-            // 등급 및 메시지 계산
-            const gradeInfo = getGrade(time);
-            document.getElementById('result-grade').textContent = gradeInfo.grade;
-            document.getElementById('result-message').textContent = gradeInfo.message;
-            
-            // 통계 정보 업데이트
-            updateStats();
-        }
-
         // ==================== 등급 계산 함수 ====================
         function getGrade(time) {
-            if (time < 150) {
-                return {
-                    grade: '🏎️ F1 Driver',
-                    message: 'Incredible! You have superhuman reflexes!'
-                };
-            } else if (time < 200) {
-                return {
-                    grade: '✈️ Fighter Pilot',
-                    message: 'Outstanding! Your reflexes are exceptional!'
-                };
-            } else if (time < 250) {
-                return {
-                    grade: '⚡ Athlete',
-                    message: 'Impressive! You react faster than most people!'
-                };
-            } else if (time < 300) {
-                return {
-                    grade: '👤 Normal Human',
-                    message: 'Good job! You have average reflexes.'
-                };
-            } else if (time < 400) {
-                return {
-                    grade: '🐢 A Bit Slow',
-                    message: 'Not bad, but you can do better!'
-                };
-            } else {
-                return {
-                    grade: '🦥 Sloth Mode',
-                    message: 'Maybe you need more coffee? Try again!'
-                };
-            }
+            if (time < 150) return { grade: '🏎️ F1 Driver', message: 'Incredible! You have superhuman reflexes!' };
+            if (time < 200) return { grade: '✈️ Fighter Pilot', message: 'Outstanding! Your reflexes are exceptional!' };
+            if (time < 250) return { grade: '⚡ Athlete', message: 'Impressive! You react faster than most people!' };
+            if (time < 300) return { grade: '👤 Normal Human', message: 'Good job! You have average reflexes.' };
+            if (time < 400) return { grade: '🐢 A Bit Slow', message: 'Not bad, but you can do better!' };
+            return { grade: '🦥 Sloth Mode', message: 'Maybe you need more coffee? Try again!' };
         }
 
         // ==================== 통계 업데이트 ====================
-        function updateStats() {
-            // 평균 계산
-            const avg = reactionTimes.reduce((a, b) => a + b, 0) / reactionTimes.length;
-            document.getElementById('avg-time').textContent = Math.round(avg);
-            
-            // 시도 횟수
-            document.getElementById('attempt-count').textContent = attemptCount;
-            
-            // 최고 기록
-            document.getElementById('best-time').textContent = bestTime !== null ? bestTime : '-';
-        }
-
+        function updateStats() { const avg = reactionTimes.reduce((a, b) => a + b, 0) / reactionTimes.length; document.getElementById('avg-time').textContent = Math.round(avg); document.getElementById('attempt-count').textContent = attemptCount; document.getElementById('best-time').textContent = bestTime !== null ? bestTime : '-'; }
+        
         // ==================== 게임 재시작 ====================
-        function restartGame() {
-            gameState = 'ready';
-            clearTimeout(waitTimeout);
-            hideAllScreens();
-            startScreen.style.display = 'block';
-            gameContainer.className = 'ready';
-        }
-
+        function restartGame() { gameState = 'ready'; clearTimeout(waitTimeout); hideAllScreens(); startScreen.style.display = 'block'; gameContainer.className = 'ready'; }
+        
         // ==================== 화면 전환 헬퍼 함수 ====================
-        function hideAllScreens() {
-            startScreen.style.display = 'none';
-            waitingScreen.style.display = 'none';
-            goScreen.style.display = 'none';
-            tooSoonScreen.style.display = 'none';
-            resultScreen.style.display = 'none';
-        }
-
+        function hideAllScreens() { startScreen.style.display = 'none'; waitingScreen.style.display = 'none'; goScreen.style.display = 'none'; tooSoonScreen.style.display = 'none'; resultScreen.style.display = 'none'; }
+        
         // ==================== SNS 공유 기능 ====================
-        function shareToTwitter() {
-            const time = document.getElementById('result-time').textContent;
-            const grade = document.getElementById('result-grade').textContent;
-            const text = `I just scored ${time} (${grade}) on the Reaction Time Test! Can you beat my score?`;
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`, '_blank');
-        }
-
-        function shareToFacebook() {
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
-        }
-
-        function shareToWhatsApp() {
-            const time = document.getElementById('result-time').textContent;
-            const grade = document.getElementById('result-grade').textContent;
-            const text = `I just scored ${time} (${grade}) on the Reaction Time Test! Can you beat my score? ${window.location.href}`;
-            window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
-        }
-
-        function copyResult() {
-            const time = document.getElementById('result-time').textContent;
-            const grade = document.getElementById('result-grade').textContent;
-            const text = `I just scored ${time} (${grade}) on the Reaction Time Test! Can you beat my score? ${window.location.href}`;
-            
-            navigator.clipboard.writeText(text).then(() => {
-                alert('Result copied to clipboard!');
-            }).catch(() => {
-                // 폴백: 수동 복사
-                const textArea = document.createElement('textarea');
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textArea);
-                alert('Result copied to clipboard!');
-            });
-        }
-
+        function shareToTwitter() { const time = document.getElementById('result-time').textContent; const grade = document.getElementById('result-grade').textContent; const text = `I just scored ${time} (${grade}) on the Reaction Time Test! Can you beat my score?`; const url = encodeURIComponent(window.location.href); window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`, '_blank'); }
+        function shareToFacebook() { const url = encodeURIComponent(window.location.href); window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank'); }
+        function shareToWhatsApp() { const time = document.getElementById('result-time').textContent; const grade = document.getElementById('result-grade').textContent; const text = `I just scored ${time} (${grade}) on the Reaction Time Test! Can you beat my score? ${window.location.href}`; window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank'); }
+        function copyResult() { const time = document.getElementById('result-time').textContent; const grade = document.getElementById('result-grade').textContent; const text = `I just scored ${time} (${grade}) on the Reaction Time Test! Can you beat my score? ${window.location.href}`; navigator.clipboard.writeText(text).then(() => { alert('Result copied to clipboard!'); }).catch(() => { const textArea = document.createElement('textarea'); textArea.value = text; document.body.appendChild(textArea); textArea.select(); document.execCommand('copy'); document.body.removeChild(textArea); alert('Result copied to clipboard!'); }); }
+        
         // ==================== Formspree submission handler ====================
         const form = document.getElementById('partnership-form');
         const formStatus = document.getElementById('form-status');
-
         if (form) {
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 formStatus.textContent = 'Sending...';
                 formStatus.className = 'form-status'; // Reset class
-
                 try {
-                    const response = await fetch(form.action, {
-                        method: form.method,
-                        body: new FormData(form),
-                        headers: {
-                            'Accept': 'application/json'
-                        }
-                    });
-
+                    const response = await fetch(form.action, { method: form.method, body: new FormData(form), headers: { 'Accept': 'application/json' } });
                     if (response.ok) {
                         formStatus.textContent = 'Thank you for your message! We will get back to you soon.';
                         formStatus.classList.add('success');
                         form.reset();
                     } else {
                         const data = await response.json();
-                        if (Object.hasOwnProperty.call(data, 'errors')) {
-                            formStatus.textContent = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            formStatus.textContent = 'Oops! There was a problem submitting your form.';
-                        }
+                        if (Object.hasOwnProperty.call(data, 'errors')) { formStatus.textContent = data["errors"].map(error => error["message"]).join(", "); } else { formStatus.textContent = 'Oops! There was a problem submitting your form.'; }
                         formStatus.classList.add('error');
                     }
                 } catch (error) {
@@ -750,6 +350,22 @@
                 }
             });
         }
+        
+        // ==================== Modal Control ====================
+        const contactModal = document.getElementById('contact-modal');
+        const openModalBtn = document.getElementById('contact-modal-btn');
+        const closeModalBtn = document.getElementById('modal-close-btn');
+
+        function openModal() { contactModal.classList.add('visible'); }
+        function closeModal() { contactModal.classList.remove('visible'); }
+
+        openModalBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) { // Click on overlay
+                closeModal();
+            }
+        });
 
         // ==================== 초기화 ====================
         // 페이지 로드 시 통계 표시
