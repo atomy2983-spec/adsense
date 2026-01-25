@@ -191,6 +191,18 @@
         /* 로딩 애니메이션 */
         .loading-dots::after { content: '...'; animation: dots 1.5s steps(3, end) infinite; }
         @keyframes dots { 0%, 20% { content: '.'; } 40% { content: '..'; } 60%, 100% { content: '...'; } }
+
+        /* Comments Section */
+        .comments-section {
+            width: 100%;
+            padding: 40px 20px;
+            background: #1a1a1a;
+        }
+
+        #disqus_thread {
+            max-width: 800px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -219,8 +231,10 @@
         </div>
     </div>
     
-    <!-- Disqus 댓글 섹션 -->
-    <div id="disqus_thread" style="margin: 40px auto; max-width: 800px; padding: 0 20px;"></div>
+    <!-- Disqus Comments Section -->
+    <section class="comments-section">
+        <div id="disqus_thread"></div>
+    </section>
     <script>
         /**
         *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -239,7 +253,7 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <!-- End Disqus 댓글 섹션 -->
+    <!-- End Disqus Comments Section -->
 
     <!-- 페이지 푸터 -->
     <footer id="page-footer">
